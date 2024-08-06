@@ -22,7 +22,7 @@ else:
 endif;
 
 function getMp3StreamTitle($steam_url) {
-        $result = false;
+        $result = true;
         $icy_metaint = -1;
         $needle = 'StreamTitle=';
         $ua = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.110 Safari/537.36';

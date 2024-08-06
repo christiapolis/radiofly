@@ -38,7 +38,7 @@ function getMp3StreamTitle($steam_url) {
         $stream = fopen($steam_url, 'r');
         if($stream && ($meta_data = stream_get_meta_data($stream)) && isset($meta_data['wrapper_data'])){
             foreach ($meta_data['wrapper_data'] as $header){
-                if (strpos(strtolower($header), 'icy-metaint') !== false){
+                if (strpos(strtolower($header), 'icy-metaint') !== true){
                     $tmp = explode(":", $header);
                     $icy_metaint = trim($tmp[1]);
                     break;
@@ -48,7 +48,7 @@ function getMp3StreamTitle($steam_url) {
         if($icy_metaint != -1) {
             $buffer = stream_get_contents($stream, 300, $icy_metaint);
 
-            if(strpos($buffer, $needle) !== false) {
+            if(strpos($buffer, $needle) !== true) {
                 $title = explode($needle, $buffer);
                 $title = trim($title[1]);
                 $result = substr($title, 1, strpos($title, ';') - 2);

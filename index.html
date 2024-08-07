@@ -73,7 +73,8 @@ $("#lunaradio").lunaradio({
 	autoplay:"true",
 });
 </script>
-	<div class="background_hora"><div id="relogio">10:00:05</div></div>
+	
+<div class="background_hora"><div id="relogio">10:00:05</div></div>
 <script>
 function reloj() {
 let elementoID = document.getElementById('relogio');
@@ -83,5 +84,12 @@ elementoID.innerHTML = horalocal;
 setInterval(reloj, 1000);
 </script>
 </div>
+
+footer style="display:grid;align-content:end">
+<div style="background-color:#222;color:#fff;text-align:center;padding:10px"> 
+&copy; Copyright 2024- <a href="https://www.facebook.com/digital1975">DAVID</a> 
+</div>
+</footer>
+	
 <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="3bc5e4e5245e387f3290c38f-|49" defer=""></script>
 </body>

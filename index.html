@@ -74,22 +74,27 @@ $("#lunaradio").lunaradio({
 });
 </script>
 	
-<div class="background_hora"><div id="relogio">10:00:05</div></div>
-<script>
-function reloj() {
-let elementoID = document.getElementById('relogio');
-let horalocal = new Date().toLocaleTimeString('es');
-elementoID.innerHTML = horalocal;
-}
-setInterval(reloj, 1000);
-</script>
-</div>
+<!--Area de colocacion de titulo de cancion -->
+ <div id="song" class="song"><marquee scrollamount="5" behavior="scroll" direction="left"><span id="current-track"><font color="#00eeFF">En Vivo</font color></span></marquee></div>
+<div id="jquery_jplayer_1" class="jp-jplayer"></div><script type="text/javascript">
+function radioTitle()
+{
+$.ajax({
+    url: 'song.php',
+    type: 'GET',
+    cache: false,
+    success: function(result) {
+    $('#current-track').html(result);
 
-footer style="display:grid;align-content:end">
-<div style="background-color:#222;color:#fff;text-align:center;padding:10px"> 
-&copy; Copyright 2024- <a href="https://www.facebook.com/digital1975">DAVID</a> 
-</div>
-</footer>
+    }
+});
+
+}
+
+setTimeout(function(){radioTitle();}, 2000);
+setInterval(function(){radioTitle();}, 10000);
+</script></div>
+<!--Fin de area de colocacion de titulo de cancion -->
 	
 <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="3bc5e4e5245e387f3290c38f-|49" defer=""></script>
 </body>
